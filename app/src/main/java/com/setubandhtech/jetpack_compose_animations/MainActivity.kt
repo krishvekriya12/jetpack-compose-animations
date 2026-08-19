@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.setubandhtech.jetpack_compose_animations.animatedvisibility.AnimatedVisibilityDemo
+import com.setubandhtech.jetpack_compose_animations.lottie.LottieAnimationDemo
 import com.setubandhtech.jetpack_compose_animations.ui.theme.JetpackcomposeanimationsTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    AnimatedVisibilityDemo()
+                    LottieAnimationDemo()
                 }
             }
         }

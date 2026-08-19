@@ -51,4 +51,9 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
+
+    implementation("androidx.compose.material:material-icons-extended:1.6.0")
+    implementation("com.airbnb.android:lottie-compose:6.3.0")
+
+
 }
