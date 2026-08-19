@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun ButtonClickAnimation() {
+
     var isClicked by remember { mutableStateOf(false) }
 
     val scale by animateFloatAsState(
