@@ -1,0 +1,150 @@
+# 🎨 Jetpack Compose Animations
+
+A collection of beautiful animations built with Jetpack Compose — Pure Kotlin, No shortcuts.
+
+📺 **Full Hindi Tutorial Series on YouTube** → [Channel Link Here](https://youtube.com)
+
+---
+
+## 📱 Preview
+
+| Animation | Preview | YouTube |
+| :--- | :---: | :---: |
+| **Button Click** | 🎬 | [Watch](YouTube_Link_Here) |
+| **Animated Visibility** | 🎬 | [Watch](YouTube_Link_Here) |
+| **Shimmer Loading** | 🎬 | [Watch](YouTube_Link_Here) |
+| **Card Flip** | 🎬 | [Watch](YouTube_Link_Here) |
+| **Bottom Bar** | 🎬 | [Watch](YouTube_Link_Here) |
+| **Swipe to Delete** | 🎬 | [Watch](YouTube_Link_Here) |
+| **Shared Element** | 🎬 | [Watch](YouTube_Link_Here) |
+| **Lottie Animation** | 🎬 | [Watch](YouTube_Link_Here) |
+| **Custom Progress Bar** | 🎬 | [Watch](YouTube_Link_Here) |
+| **Particle Explosion** | 🎬 | [Watch](YouTube_Link_Here) |
+
+---
+
+## 🛠 Tech Stack
+
+- **Jetpack Compose**
+- **Kotlin**
+- **Material 3**
+- **Lottie Compose 6.3.0**
+- **Material Icons Extended**
+
+---
+
+## 🚀 Setup
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/yourusername/jetpack-compose-animations.git
+   ```
+2. **Open in Android Studio**
+3. **Run on emulator or device (API 24+)**
+
+---
+
+## 📂 Project Structure
+
+```text
+com/setubandhtech/jetpack_compose_animations/
+├── buttonclick/
+│   └── ButtonClickAnimation.kt
+├── animatedvisibility/
+│   └── AnimatedVisibilityDemo.kt
+├── shimmer/
+│   └── ShimmerEffect.kt
+├── cardflip/
+│   └── CardFlipAnimation.kt
+├── bottombar/
+│   └── BottomBarAnimation.kt
+├── swipetodelete/
+│   └── SwipeToDelete.kt
+├── sharedelement/
+│   └── SharedElementTransition.kt
+├── lottie/
+│   └── LottieAnimationDemo.kt
+├── progressbar/
+│   └── CustomProgressBar.kt
+└── particleexplosion/
+    └── ParticleExplosion.kt
+```
+
+---
+
+## 📦 Dependencies
+
+```kotlin
+dependencies {
+    implementation("androidx.compose.material:material-icons-extended:1.6.0")
+    implementation("com.airbnb.android:lottie-compose:6.3.0")
+}
+```
+
+---
+
+## 🎯 Animations Covered
+
+### 01 — Button Click Animation
+- `animateFloatAsState`
+- `animateColorAsState`
+- Scale + Color change on tap
+
+### 02 — Animated Visibility
+- `AnimatedVisibility`
+- `fadeIn` / `fadeOut`
+- `slideInVertically` / `slideOutVertically`
+
+### 03 — Shimmer Loading
+- `rememberInfiniteTransition`
+- `Brush.linearGradient`
+- Shimmer effect on cards
+
+### 04 — Card Flip Animation
+- `animateFloatAsState`
+- `graphicsLayer` `rotationY`
+- Front and Back side rendering
+
+### 05 — Bottom Bar Animation
+- Spring animation
+- `animateColorAsState`
+- Bouncy icon scale effect
+
+### 06 — Swipe to Delete
+- `SwipeToDismissBox`
+- Background delete animation
+- `LazyColumn` item removal
+
+### 07 — Shared Element Transition
+- `AnimatedVisibility`
+- List to Detail screen
+- Slide + Fade transition
+
+### 08 — Lottie Animation
+- Lottie Compose integration
+- Multiple JSON animations
+- Play / Pause control
+
+### 09 — Custom Progress Bar
+- `animateFloatAsState`
+- Gradient progress fill
+- Shimmer overlay + Dot indicators
+
+### 10 — Particle Explosion 💥
+- Pure Canvas — No Library
+- 80 particles with random angle/speed/color
+- `cos()` and `sin()` math for direction
+
+---
+
+## 🤝 Connect
+
+- **YouTube** → [Channel Link](https://youtube.com)
+- **LinkedIn** → [LinkedIn Link](https://linkedin.com)
+- **GitHub** → [GitHub Link](https://github.com)
+
+---
+
+## ⭐ Support
+
+Agar yeh helpful laga to Star zaroor karo! 🌟
