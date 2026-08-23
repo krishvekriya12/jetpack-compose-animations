@@ -2,7 +2,7 @@
 
 A collection of beautiful animations built with Jetpack Compose — Pure Kotlin, No shortcuts.
 
-📺 **Full Hindi Tutorial Series on YouTube** → [Channel Link Here](https://youtube.com)
+📺 **Full Hindi Tutorial Series on YouTube** → [Watch on YouTube](https://www.youtube.com/@KrishVekriya-w9f)
 
 ---
 
@@ -37,7 +37,7 @@ A collection of beautiful animations built with Jetpack Compose — Pure Kotlin,
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/yourusername/jetpack-compose-animations.git
+   git clone https://github.com/krishvekriya12/jetpack-compose-animations.git
    ```
 2. **Open in Android Studio**
 3. **Run on emulator or device (API 24+)**
@@ -139,9 +139,9 @@ dependencies {
 
 ## 🤝 Connect
 
-- **YouTube** → [Channel Link](https://youtube.com)
-- **LinkedIn** → [LinkedIn Link](https://linkedin.com)
-- **GitHub** → [GitHub Link](https://github.com)
+- **YouTube** → [@KrishVekriya-w9f](https://www.youtube.com/@KrishVekriya-w9f)
+- **LinkedIn** → [Krish Vekriya](https://www.linkedin.com/in/krish-vekriya-aa7a72311/)
+- **GitHub** → [krishvekriya12](https://github.com/krishvekriya12)
 
 ---
 
