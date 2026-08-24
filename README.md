@@ -2,8 +2,6 @@
 
 A collection of beautiful animations built with Jetpack Compose — Pure Kotlin, No shortcuts.
 
-📺 **Full Hindi Tutorial Series on YouTube** → [Watch on YouTube](https://www.youtube.com/@KrishVekriya-w9f)
-
 ---
 
 ## 📱 Preview
