@@ -6,18 +6,18 @@ A collection of beautiful animations built with Jetpack Compose — Pure Kotlin,
 
 ## 📱 Preview
 
-| Animation | Preview | YouTube |
-| :--- | :---: | :---: |
-| **Button Click** | 🎬 | [Watch](YouTube_Link_Here) |
-| **Animated Visibility** | 🎬 | [Watch](YouTube_Link_Here) |
-| **Shimmer Loading** | 🎬 | [Watch](YouTube_Link_Here) |
-| **Card Flip** | 🎬 | [Watch](YouTube_Link_Here) |
-| **Bottom Bar** | 🎬 | [Watch](YouTube_Link_Here) |
-| **Swipe to Delete** | 🎬 | [Watch](YouTube_Link_Here) |
-| **Shared Element** | 🎬 | [Watch](YouTube_Link_Here) |
-| **Lottie Animation** | 🎬 | [Watch](YouTube_Link_Here) |
-| **Custom Progress Bar** | 🎬 | [Watch](YouTube_Link_Here) |
-| **Particle Explosion** | 🎬 | [Watch](YouTube_Link_Here) |
+| Animation | Preview |
+| :--- | :---: |
+| **Button Click** | 🎬 |
+| **Animated Visibility** | 🎬 |
+| **Shimmer Loading** | 🎬 |
+| **Card Flip** | 🎬 |
+| **Bottom Bar** | 🎬 |
+| **Swipe to Delete** | 🎬 |
+| **Shared Element** | 🎬 |
+| **Lottie Animation** | 🎬 |
+| **Custom Progress Bar** | 🎬 |
+| **Particle Explosion** | 🎬 |
 
 ---
 
