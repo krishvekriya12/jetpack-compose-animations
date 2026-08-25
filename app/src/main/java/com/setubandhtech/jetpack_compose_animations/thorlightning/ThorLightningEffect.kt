@@ -37,7 +37,7 @@ fun ThorLightningEffect() {
     var tapPosition by remember { mutableStateOf<Offset?>(null) }
     var lightningBolts by remember { mutableStateOf<List<LightningBolt>>(emptyList()) }
     var sparks by remember { mutableStateOf<List<Spark>>(emptyList()) }
-    var strikeProgress by remember { mutableStateOf(0f) }
+    var strikeProgress by remember { mutableFloatStateOf(0f) }
     var isStriking by remember { mutableStateOf(false) }
 
     val strikeAnim by animateFloatAsState(
