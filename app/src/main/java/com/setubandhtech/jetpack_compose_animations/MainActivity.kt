@@ -25,6 +25,7 @@ import com.setubandhtech.jetpack_compose_animations.liquidfill.LiquidFillButton
 import com.setubandhtech.jetpack_compose_animations.lottie.LottieAnimationDemo
 import com.setubandhtech.jetpack_compose_animations.newyearcountdown.NewYearCountdown
 import com.setubandhtech.jetpack_compose_animations.particleexplosion.ParticleExplosion
+import com.setubandhtech.jetpack_compose_animations.rotatingglobe.RotatingGlobe
 import com.setubandhtech.jetpack_compose_animations.sharedelement.SharedElementTransition
 import com.setubandhtech.jetpack_compose_animations.shimmer.ShimmerCard
 import com.setubandhtech.jetpack_compose_animations.shimmer.ShimmerEffect
@@ -44,7 +45,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ThorLightningEffect()
+                    SpiderManWebShooter()
                 }
             }
         }
