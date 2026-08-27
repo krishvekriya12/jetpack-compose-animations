@@ -39,7 +39,7 @@ data class ConfettiPiece(
 
 @Composable
 fun NewYearCountdown() {
-    var countdown by remember { mutableStateOf(10) }
+    var countdown by remember { mutableStateOf(3) }
     var isStarted by remember { mutableStateOf(false) }
     var isCelebrating by remember { mutableStateOf(false) }
     var confetti by remember { mutableStateOf<List<ConfettiPiece>>(emptyList()) }
