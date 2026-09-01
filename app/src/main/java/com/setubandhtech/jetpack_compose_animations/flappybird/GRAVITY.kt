@@ -1,5 +1,6 @@
 package com.setubandhtech.jetpack_compose_animations.flappybird
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -56,10 +57,11 @@ data class ParticleData(
     val size: Float
 )
 
+@SuppressLint("AutoboxingStateCreation")
 @Composable
 fun FlappyBird() {
     var gameState by remember { mutableStateOf(GameState.IDLE) }
-    var birdY by remember { mutableStateOf(0f) }
+    var birdY by remember { mutableFloatStateOf(0f) }
     var birdVY by remember { mutableStateOf(0f) }
     var birdAngle by remember { mutableStateOf(0f) }
     var pipes by remember { mutableStateOf<List<GamePipe>>(emptyList()) }
