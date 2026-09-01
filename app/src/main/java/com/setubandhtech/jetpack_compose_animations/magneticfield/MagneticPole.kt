@@ -34,8 +34,8 @@ data class FieldLine(
 
 @Composable
 fun MagneticField() {
-    var canvasW by remember { mutableStateOf(0f) }
-    var canvasH by remember { mutableStateOf(0f) }
+    var canvasW by remember { mutableFloatStateOf(0f) }
+    var canvasH by remember { mutableFloatStateOf(0f) }
 
     var poles by remember { mutableStateOf<List<MagneticPole>>(emptyList()) }
 
@@ -47,7 +47,7 @@ fun MagneticField() {
             )
         }
     }
-    var draggingId by remember { mutableStateOf(-1) }
+    var draggingId by remember { mutableIntStateOf(-1) }
     var fieldLines by remember { mutableStateOf<List<FieldLine>>(emptyList()) }
 
     LaunchedEffect(poles) {
@@ -232,7 +232,7 @@ fun computeFieldLines(
             var strength = 0f
 
             repeat(maxSteps) { step ->
-                if (x < 0f || x > width || y < 0f || y > height) return@repeat
+                if (x !in 0f..width || y < 0f || y > height) return@repeat
 
                 points.add(Offset(x, y))
 
@@ -518,7 +518,7 @@ fun DrawScope.drawForceConnection(poles: List<MagneticPole>, pulse: Float) {
         val alpha = sin(t * PI.toFloat()) * 0.8f
 
         drawCircle(
-            color = lineColor.copy(alpha = alpha.toFloat()),
+            color = lineColor.copy(alpha = alpha),
             radius = 3f,
             center = Offset(dashX, dashY)
         )

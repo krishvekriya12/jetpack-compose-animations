@@ -26,7 +26,7 @@ import kotlin.math.sin
 @Composable
 fun CaptainAmericaShield() {
     var isThrown by remember { mutableStateOf(false) }
-    var throwProgress by remember { mutableStateOf(0f) }
+    var throwProgress by remember { mutableFloatStateOf(0f) }
 
     val spinAngle by rememberInfiniteTransition(label = "spin")
         .animateFloat(

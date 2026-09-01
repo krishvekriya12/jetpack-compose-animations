@@ -43,10 +43,9 @@ data class AnchorWeb(
 fun SpiderManWebShooter() {
     var webShots by remember { mutableStateOf<List<WebShot>>(emptyList()) }
     var anchorWebs by remember { mutableStateOf<List<AnchorWeb>>(emptyList()) }
-    var shotCounter by remember { mutableStateOf(0) }
+    var shotCounter by remember { mutableIntStateOf(0) }
     var lastTarget by remember { mutableStateOf<Offset?>(null) }
 
-    // Smooth tick
     val infiniteTransition = rememberInfiniteTransition(label = "web")
 
     val tick by infiniteTransition.animateFloat(
@@ -59,7 +58,6 @@ fun SpiderManWebShooter() {
         label = "tick"
     )
 
-    // Sway animation — wind effect
     val swayAngle by infiniteTransition.animateFloat(
         initialValue = -1f,
         targetValue = 1f,
@@ -70,7 +68,6 @@ fun SpiderManWebShooter() {
         label = "sway"
     )
 
-    // Silk shimmer
     val shimmer by infiniteTransition.animateFloat(
         initialValue = 0f,
         targetValue = 1f,
@@ -94,7 +91,6 @@ fun SpiderManWebShooter() {
                 detectTapGestures { offset ->
                     val origin = Offset(size.width / 2f, size.height.toFloat())
 
-                    // Connect webs between previous targets
                     lastTarget?.let { prev ->
                         val sag = (offset.y - prev.y).absoluteValue * 0.3f + 20f
                         anchorWebs = (anchorWebs + AnchorWeb(
@@ -118,7 +114,6 @@ fun SpiderManWebShooter() {
 
         Canvas(modifier = Modifier.fillMaxSize()) {
 
-            // Draw anchor webs between tap points
             anchorWebs.forEach { web ->
                 drawSilkThread(
                     start = web.p1,
@@ -131,7 +126,6 @@ fun SpiderManWebShooter() {
                 )
             }
 
-            // Draw web shots
             webShots.forEach { shot ->
                 drawRealisticWeb(
                     shot = shot,
@@ -174,20 +168,16 @@ fun DrawScope.drawRealisticWeb(
     val origin = shot.origin
     val target = shot.target
 
-    // Main thread — catenary curve with gravity sag
     val sag = (target.y - origin.y).absoluteValue * 0.15f + 10f
     val midX = (origin.x + target.x) / 2f + swayAngle * 3f
     val midY = (origin.y + target.y) / 2f + sag
 
-    // Animate tip along path
     val tipX = lerp(origin.x, target.x, progress)
     val tipY = lerp(origin.y, target.y, progress) +
             sag * 4f * progress * (1f - progress)
 
     val tipOffset = Offset(tipX, tipY)
 
-    // Main silk thread — 3 layers for realistic look
-    // Outer glow
     drawCatenaryThread(
         start = origin,
         end = tipOffset,
@@ -197,7 +187,6 @@ fun DrawScope.drawRealisticWeb(
         strokeWidth = 6f
     )
 
-    // Mid thread
     drawCatenaryThread(
         start = origin,
         end = tipOffset,
@@ -207,7 +196,6 @@ fun DrawScope.drawRealisticWeb(
         strokeWidth = 2f
     )
 
-    // Core silk — white with shimmer
     val shimmerAlpha = 0.7f + sin(shimmer * 2f * Math.PI.toFloat() + shot.swayPhase) * 0.3f
     drawCatenaryThread(
         start = origin,
@@ -218,7 +206,6 @@ fun DrawScope.drawRealisticWeb(
         strokeWidth = 0.8f
     )
 
-    // Web at target when arrived
     if (progress > 0.85f) {
         val webAlpha = ((progress - 0.85f) / 0.15f).coerceIn(0f, 1f)
         drawSpiderWeb(
@@ -232,7 +219,6 @@ fun DrawScope.drawRealisticWeb(
         )
     }
 
-    // Tip dot
     if (progress < 1f) {
         drawCircle(
             color = Color.White.copy(alpha = 0.9f),
@@ -256,20 +242,17 @@ fun DrawScope.drawSpiderWeb(
     shimmer: Float,
     alpha: Float
 ) {
-    // Spokes — radial lines
     val spokeEndpoints = List(spokes) { i ->
         val angle = (i.toFloat() / spokes) * 2f * Math.PI.toFloat() - Math.PI.toFloat() / 2f
         val swayX = swayAngle * 2f * sin(angle)
         Offset(
             x = center.x + cos(angle) * maxRadius + swayX,
             y = center.y + sin(angle) * maxRadius +
-                    abs(swayAngle) * 3f // gravity pull down
+                    abs(swayAngle) * 3f
         )
     }
 
-    // Draw spokes
     spokeEndpoints.forEach { endpoint ->
-        // Glow
         drawLine(
             color = Color(0xFFE53935).copy(alpha = 0.1f * alpha),
             start = center,
@@ -277,7 +260,6 @@ fun DrawScope.drawSpiderWeb(
             strokeWidth = 3f,
             cap = StrokeCap.Round
         )
-        // Silk
         drawLine(
             color = Color.White.copy(alpha = 0.4f * alpha),
             start = center,
@@ -287,7 +269,6 @@ fun DrawScope.drawSpiderWeb(
         )
     }
 
-    // Rings — catenary curves between spokes
     repeat(rings) { ring ->
         val ringRatio = (ring + 1).toFloat() / rings
         val ringRadius = maxRadius * ringRatio
@@ -304,17 +285,14 @@ fun DrawScope.drawSpiderWeb(
             )
         }
 
-        // Draw ring segments as catenary curves
         for (i in 0 until spokes) {
             val p1 = ringPoints[i]
             val p2 = ringPoints[i + 1]
             val segSag = (ringRadius / spokes) * 0.3f
 
-            // Shimmer effect per ring segment
             val segShimmer = sin(shimmer * 2f * Math.PI.toFloat() +
                     i * 0.5f + ring * 0.3f) * 0.2f + 0.8f
 
-            // Glow
             drawSilkThread(
                 start = p1,
                 end = p2,
@@ -325,7 +303,6 @@ fun DrawScope.drawSpiderWeb(
                 shimmer = shimmer
             )
 
-            // Silk thread
             drawSilkThread(
                 start = p1,
                 end = p2,
@@ -338,7 +315,6 @@ fun DrawScope.drawSpiderWeb(
         }
     }
 
-    // Dew drops on web
     repeat(rings) { ring ->
         val ringRatio = (ring + 1).toFloat() / rings
         val ringRadius = maxRadius * ringRatio
@@ -351,7 +327,6 @@ fun DrawScope.drawSpiderWeb(
                     abs(swayAngle) * 3f * ringRatio
 
             if ((ring + spoke) % 3 == 0) {
-                // Dew drop
                 drawCircle(
                     color = Color(0xFF64B5F6).copy(alpha = 0.4f * alpha),
                     radius = 2.5f,
@@ -366,7 +341,6 @@ fun DrawScope.drawSpiderWeb(
         }
     }
 
-    // Center anchor
     drawCircle(
         color = Color(0xFFE53935).copy(alpha = 0.3f * alpha),
         radius = 8f,
@@ -395,7 +369,7 @@ fun DrawScope.drawCatenaryThread(
     for (i in 1..steps) {
         val t = i.toFloat() / steps
         val x = lerp(start.x, end.x, t)
-        val sagY = sag * 4f * t * (1f - t) // Parabolic sag
+        val sagY = sag * 4f * t * (1f - t)
         val y = lerp(start.y, end.y, t) + sagY
         path.lineTo(x, y)
     }

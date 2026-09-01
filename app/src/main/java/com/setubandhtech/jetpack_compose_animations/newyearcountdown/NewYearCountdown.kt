@@ -23,6 +23,7 @@ import kotlin.math.sin
 import kotlin.random.Random
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.ui.input.pointer.pointerInput
+import kotlin.time.Duration.Companion.milliseconds
 
 data class ConfettiPiece(
     val id: Int,
@@ -39,11 +40,11 @@ data class ConfettiPiece(
 
 @Composable
 fun NewYearCountdown() {
-    var countdown by remember { mutableStateOf(3) }
+    var countdown by remember { mutableIntStateOf(3) }
     var isStarted by remember { mutableStateOf(false) }
     var isCelebrating by remember { mutableStateOf(false) }
     var confetti by remember { mutableStateOf<List<ConfettiPiece>>(emptyList()) }
-    var confettiProgress by remember { mutableStateOf(0f) }
+    var confettiProgress by remember { mutableFloatStateOf(0f) }
 
     val confettiColors = listOf(
         Color(0xFFFFD700),
@@ -101,7 +102,7 @@ fun NewYearCountdown() {
     LaunchedEffect(isStarted) {
         if (isStarted) {
             while (countdown > 0) {
-                delay(1000)
+                delay(1000.milliseconds)
                 countdown--
             }
             isCelebrating = true

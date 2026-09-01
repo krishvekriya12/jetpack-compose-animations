@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.sp
 import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.random.Random
+import kotlin.time.Duration.Companion.milliseconds
 
 data class Firework(
     val id: Int,
@@ -43,7 +44,7 @@ data class FireworkState(
 @Composable
 fun DiwaliFireworks() {
     var fireworks by remember { mutableStateOf<List<FireworkState>>(emptyList()) }
-    var idCounter by remember { mutableStateOf(0) }
+    var idCounter by remember { mutableIntStateOf(0) }
 
     val fireworkColors = listOf(
         Color(0xFFFFD700),
@@ -60,7 +61,7 @@ fun DiwaliFireworks() {
 
     LaunchedEffect(Unit) {
         while (true) {
-            kotlinx.coroutines.delay(800)
+            kotlinx.coroutines.delay(800.milliseconds)
             val color = fireworkColors.random()
             val burstColors = List(3) { fireworkColors.random() }
             val newFirework = FireworkState(

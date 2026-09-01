@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 import kotlin.math.*
+import kotlin.time.Duration.Companion.milliseconds
 
 data class FourierTerm(
     val frequency: Float,
@@ -29,11 +30,11 @@ data class FourierTerm(
 @Composable
 fun FourierEpicycles() {
     var fourierTerms by remember { mutableStateOf<List<FourierTerm>>(emptyList()) }
-    var time by remember { mutableStateOf(0f) }
+    var time by remember { mutableFloatStateOf(0f) }
     var tracePath by remember { mutableStateOf<List<Offset>>(emptyList()) }
-    var selectedShape by remember { mutableStateOf(0) }
-    var screenW by remember { mutableStateOf(1080f) }
-    var screenH by remember { mutableStateOf(1920f) }
+    var selectedShape by remember { mutableIntStateOf(0) }
+    var screenW by remember { mutableFloatStateOf(1080f) }
+    var screenH by remember { mutableFloatStateOf(1920f) }
     var ready by remember { mutableStateOf(false) }
 
     val shapes = listOf("Heart", "Star", "Wave", "Circle", "Infinity")
@@ -133,7 +134,7 @@ fun FourierEpicycles() {
                 ty += term.amplitude * sin(a)
             }
             tracePath = (tracePath + Offset(tx, ty)).takeLast(600)
-            delay(16)
+            delay(16.milliseconds)
         }
     }
 
