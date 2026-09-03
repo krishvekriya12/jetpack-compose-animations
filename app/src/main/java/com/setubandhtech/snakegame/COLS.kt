@@ -87,7 +87,7 @@ fun SnakeGame() {
     var particles by remember { mutableStateOf<List<Particle>>(emptyList()) }
     var cellSize by remember { mutableStateOf(0f) }
     var moveCount by remember { mutableStateOf(0) }
-    var headPulse by remember { mutableStateOf(1f) }
+    var headPulse by remember { mutableFloatStateOf(1f) }
 
     val foodPulse by rememberInfiniteTransition(label = "foodPulse")
         .animateFloat(
