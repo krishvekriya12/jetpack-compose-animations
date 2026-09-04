@@ -1,4 +1,4 @@
-package com.setubandhtech.snakegame
+package com.setubandhtech.jetpack_compose_animations.snakegame
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.*
