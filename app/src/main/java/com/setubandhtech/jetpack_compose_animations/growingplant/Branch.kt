@@ -99,9 +99,9 @@ fun GrowingPlant() {
     var flowerAttachments by remember { mutableStateOf<List<FlowerAttachment>>(emptyList()) }
     var particles by remember { mutableStateOf<List<Particle>>(emptyList()) }
     var growthComplete by remember { mutableStateOf(false) }
-    var rootX by remember { mutableStateOf(0f) }
-    var rootY by remember { mutableStateOf(0f) }
-    var screenH by remember { mutableStateOf(0f) }
+    var rootX by remember { mutableFloatStateOf(0f) }
+    var rootY by remember { mutableFloatStateOf(0f) }
+    var screenH by remember { mutableFloatStateOf(0f) }
 
     val growth = remember { Animatable(0f) }
 
