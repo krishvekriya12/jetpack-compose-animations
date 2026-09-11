@@ -63,6 +63,7 @@ dependencies {
 
     implementation("androidx.compose.material:material-icons-extended:1.6.0")
     implementation("com.airbnb.android:lottie-compose:6.3.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.11.0")
 
 
 }
